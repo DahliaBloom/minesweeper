@@ -1,6 +1,16 @@
 <script>
   import minesweeper from "minesweeper";
   import Cell from "./Cell.svelte";
+  import { createEventDispatcher } from "svelte";
+
+  const dispatch = createEventDispatcher();
+  $: {
+    if (board.state() === minesweeper.BoardStateEnum.LOST) {
+      dispatch("lost");
+    } else if (board.state() === minesweeper.BoardStateEnum.WON) {
+      dispatch("won");
+    }
+  }
 
   const boardSize = 10;
   let board = new minesweeper.Board(

@@ -1,8 +1,18 @@
 <script>
   import Board from "./lib/Board.svelte";
+  import GameOver from "./lib/GameOver.svelte";
+
+  let gameState;
 </script>
 
-<Board />
+{#if gameState === undefined}
+  <Board
+    on:won={() => (gameState = "won")}
+    on:lost={() => (gameState = "lost")}
+  />
+{:else}
+  <GameOver state={gameState} on:click={() => (gameState = undefined)} />
+{/if}
 
 <style>
   :root {

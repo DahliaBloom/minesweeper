@@ -31,20 +31,13 @@
   div {
     display: grid;
     place-items: center;
-    width: 7vh;
-    height: 7vh;
+    width: 7vmin;
+    height: 7vmin;
     border-radius: 20%;
     text-align: center;
     color: var(--n-c);
     font-size: 4vmin;
     font-family: "Play", sans-serif;
     user-select: none;
-  }
-
-  @media (orientation: portrait) {
-    div {
-      width: 7vw;
-      height: 7vw;
-    }
   }
 </style>
